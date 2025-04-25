@@ -1,0 +1,554 @@
+{
+	"info": {
+		"_postman_id": "c3534ec6-7d5d-44c1-9579-4e65d54c5a5f",
+		"name": "DevRecruit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40592792"
+	},
+	"item": [
+		{
+			"name": "Get Customers By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/cashier/customers/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"cashier",
+						"customers",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Customers By ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/customers/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"customers",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 02:33:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Eri Abiodun\",\n    \"email\": \"rcabiodun@gmail.com\",\n    \"created_at\": \"2025-04-25T00:48:36.095434Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Eri Abiodun\",\n    \"email\":\"rcabiodun@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/customers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Customer",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Eri Abiodun\",\n    \"email\":\"rcabiodun@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/customers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 02:33:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "102"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"name\": \"Eri Abiodun\",\n    \"email\": \"rcabiodun@gmail.com\",\n    \"created_at\": \"2025-04-25T02:33:28.599576Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Invoice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"issue_date\":\"2025-04-25\",\n    \"due_date\":\"2025-04-29\",\n    \"email\":\"rcabiodun@gmail.com\",\n    \"customer\":1,\n    \"items\":[\n        {\"description\":\"a biada af\",\"quantity\":2,\"unit_price\":70.00},\n         {\"description\":\"a biada af\",\"quantity\":1,\"unit_price\":100.00}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/invoices/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"invoices",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Invoice",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"issue_date\":\"2025-04-25\",\n    \"due_date\":\"2025-04-29\",\n    \"email\":\"rcabiodun@gmail.com\",\n    \"customer\":1,\n    \"items\":[\n        {\"description\":\"a biada af\",\"quantity\":2,\"unit_price\":50.00},\n         {\"description\":\"a biada af\",\"quantity\":1,\"unit_price\":100.00}\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/invoices/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"invoices",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 02:33:08 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "361"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 19,\n    \"items\": [\n        {\n            \"id\": 13,\n            \"description\": \"a biada af\",\n            \"quantity\": 2,\n            \"unit_price\": \"50.00\",\n            \"total\": \"100.00\",\n            \"invoice\": 19\n        },\n        {\n            \"id\": 14,\n            \"description\": \"a biada af\",\n            \"quantity\": 1,\n            \"unit_price\": \"100.00\",\n            \"total\": \"100.00\",\n            \"invoice\": 19\n        }\n    ],\n    \"total\": 200,\n    \"issue_date\": \"2025-04-25\",\n    \"due_date\": \"2025-04-29\",\n    \"status\": \"pending\",\n    \"created_at\": \"2025-04-25T02:33:08.059928Z\",\n    \"customer\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invoice",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/invoices/16",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"invoices",
+						"16"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Invoice",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"status\":\"pending\"}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/invoices/16/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"invoices",
+								"16",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 02:32:56 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PATCH, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "359"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 16,\n    \"items\": [\n        {\n            \"id\": 7,\n            \"description\": \"a biada af\",\n            \"quantity\": 2,\n            \"unit_price\": \"70.00\",\n            \"total\": \"140.00\",\n            \"invoice\": 16\n        },\n        {\n            \"id\": 8,\n            \"description\": \"a biada af\",\n            \"quantity\": 1,\n            \"unit_price\": \"100.00\",\n            \"total\": \"100.00\",\n            \"invoice\": 16\n        }\n    ],\n    \"total\": 240,\n    \"issue_date\": \"2025-04-25\",\n    \"due_date\": \"2025-04-29\",\n    \"status\": \"pending\",\n    \"created_at\": \"2025-04-25T00:47:21.269004Z\",\n    \"customer\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "RETRIEVE INVOICE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/invoices/16",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"invoices",
+						"16"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Retreive Invoice",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/invoices/16/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"invoices",
+								"16",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 25 Apr 2025 02:33:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.13.0"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PATCH, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "359"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 16,\n    \"items\": [\n        {\n            \"id\": 7,\n            \"description\": \"a biada af\",\n            \"quantity\": 2,\n            \"unit_price\": \"70.00\",\n            \"total\": \"140.00\",\n            \"invoice\": 16\n        },\n        {\n            \"id\": 8,\n            \"description\": \"a biada af\",\n            \"quantity\": 1,\n            \"unit_price\": \"100.00\",\n            \"total\": \"100.00\",\n            \"invoice\": 16\n        }\n    ],\n    \"total\": 240,\n    \"issue_date\": \"2025-04-25\",\n    \"due_date\": \"2025-04-29\",\n    \"status\": \"pending\",\n    \"created_at\": \"2025-04-25T00:47:21.269004Z\",\n    \"customer\": 1\n}"
+				}
+			]
+		}
+	]
+}
